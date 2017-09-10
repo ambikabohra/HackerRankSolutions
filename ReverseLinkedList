@@ -1,0 +1,38 @@
+/*
+  Reverse a linked list and return pointer to the head
+  The input list will have at least one element  
+  Node is defined as 
+  struct Node
+  {
+     int data;
+     struct Node *next;
+  }
+*/
+#include <vector>
+Node* Reverse(Node *head)
+{
+  // Complete this method
+    struct Node *temp = head;
+    //struct Node *newList = NULL;
+    vector<int> newList;
+
+    if( head != NULL)
+    {
+        while(temp != NULL)
+        {
+            newList.push_back(temp->data);
+            if(temp->next != NULL)
+                temp = temp->next;
+            else
+                break;
+            
+        }
+        temp = head;
+        for ( vector<int>::iterator it = newList.end() - 1; (it != newList.begin() - 1) && (temp != NULL); --it  ) 
+        {
+            temp->data = *it;
+            temp = temp->next;
+        }
+    }
+    return head;
+}
