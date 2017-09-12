@@ -15,8 +15,7 @@
 # Add your code here 
 
 def capitalize(string):
-    return string.title()
-
+    return (" ".join((s.capitalize() for s in string.strip().split(" "))))
 
 
     
