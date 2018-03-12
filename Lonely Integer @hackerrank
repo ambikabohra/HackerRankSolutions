@@ -1,0 +1,32 @@
+
+//Used hashmap to store value and count. Searched for value having count 1. (entrySet)
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int a[] = new int[n];
+        HashMap<Integer, Integer> hmap = new HashMap<Integer, Integer>();
+        
+        for(int a_i=0; a_i < n; a_i++){
+            int x = in.nextInt();
+            int count = 1;
+            if(hmap.containsKey(x))
+                count = hmap.get(x)+1;
+            hmap.put(x, count);      
+        }
+        
+        for (Map.Entry<Integer,Integer> entry : hmap.entrySet()) 
+        {
+            if(entry.getValue() == 1)
+                System.out.println(entry.getKey());
+        }
+    }
+}
